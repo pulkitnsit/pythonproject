@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head><title>Voice Sampling</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="row">
+	<h1 style="text-align: center;margin-bottom: 100px;">Voice Sampling</h1>
+</div>
+
+<div class="row">
+	<div class="col-5" style="text-align: center;">
+		<audio controls>
+			<source src="<?php echo $_POST['file1']; ?>"; type="audio/mpeg">
+			Your browser does not support audio element.
+		</audio>
+
+		<form action="" method="post" >
+			<div class="field">
+				Choose file:
+				<input type="file" name="file1" id="file1" accept="audio/*"><br>
+			</div>
+			<input type="submit" name="submit" value="Upload">
+		</form>
+	</div>
+	
+	<div class="col-2" style="text-align: center;">
+		<ol style="list-style-type: none;">
+			<li>
+				<form action="" method="post">
+					<div class="field">
+						<input type="hidden" name="stext" id="stext" value="">
+					</div>
+					<input type="submit" name="Undersample" id="Undersample" value="Undersample">
+				</form>
+			</li>
+			<li>
+				<form action="" method="post">
+					<div class="field">
+						<input type="hidden" name="s1text" id="s2text" value="">
+					</div>
+					<input type="submit" name="Oversample" id="Oversample" value="Oversample">
+				</form>
+			</li>
+			<li>
+				<form action="" method="post">
+					<div class="field">
+						<input type="hidden" name="s2text" id="s2text" value="">
+					</div>
+					<input type="submit" name="LowPassFilter" id="LowPassFilter" value="Low Pass Filter">
+				</form>
+			</li>
+			<li>
+				<form action="" method="post">
+					<div class="field">
+						<input type="hidden" name="s3text" id="s3text" value="">
+					</div>
+					<input type="submit" name="BandPassFilter" id="BandPassFilter" value="Band Pass Filter">
+				</form>
+			</li>
+		</ol>
+	</div>
+	
+	<div class="col-5" style="text-align: center;">
+		<audio controls>
+			<source src="<?php echo $_POST['file2']; ?>"; type="audio/mpeg">
+			Your browser does not support audio element.
+		</audio>
+
+		<form action="" method="post" >
+			<div class="field">
+				Choose file:
+				<input type="file" name="file2" id="file2" accept="audio/*"><br>
+			</div>
+			<input type="submit" name="submit" value="Upload">
+		</form>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-6" style="text-align: center;">
+		<p>Text about original file here. Badola yahan daalna hai.</p>
+	</div>
+	
+	<div class="col-6" style="text-align: center;">
+		<p>Text about new file here. Badola yahan daalna hai.</p>
+	</div>
+</div>
+
+<!--For the image of low pass filters, high pass filters etc. img src alag alag cases mein alag hoga -->
+<div class="row">
+	<div class="col-6" style="text-align: center;">
+		<img src="" alt="image_ka_some_text" style="">
+	</div>
+	
+	<div class="col-6" style="text-align: center;">
+		<img src="" alt="image_ka_some_more_text" style="">
+	</div>
+</div>
+
+</body>
+</html>
