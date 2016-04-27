@@ -28,40 +28,42 @@
 	</div>
 
 	<div class="col-2" style="text-align: center;">
+	{% if uploaded %}
 		<ol style="list-style-type: none;">
 			<li>
-				<form action="" method="post">
+				<form action="{{ url_for('undersample_main') }}" method="post">
 					<div class="field">
-						<input type="hidden" name="stext" id="stext" value="">
+						<input type="hidden" name="stext" id="stext" value="{{ uploaded }}">
 					</div>
 					<input type="submit" name="Undersample" id="Undersample" value="Undersample">
 				</form>
 			</li>
 			<li>
-				<form action="" method="post">
+				<form action="{{ url_for('oversample_main') }}" method="post">
 					<div class="field">
-						<input type="hidden" name="s1text" id="s2text" value="">
+						<input type="hidden" name="s1text" id="s2text" value="{{ uploaded }}">
 					</div>
 					<input type="submit" name="Oversample" id="Oversample" value="Oversample">
 				</form>
 			</li>
 			<li>
-				<form action="" method="post">
+				<form action="{{ url_for('lpf_main') }}" method="post">
 					<div class="field">
-						<input type="hidden" name="s2text" id="s2text" value="">
+						<input type="hidden" name="s2text" id="s2text" value="{{ uploaded }}">
 					</div>
 					<input type="submit" name="LowPassFilter" id="LowPassFilter" value="Low Pass Filter">
 				</form>
 			</li>
 			<li>
-				<form action="" method="post">
+				<form action="{{ url_for('bpf_main') }}" method="post">
 					<div class="field">
-						<input type="hidden" name="s3text" id="s3text" value="">
+						<input type="hidden" name="s3text" id="s3text" value="{{ uploaded }}">
 					</div>
 					<input type="submit" name="BandPassFilter" id="BandPassFilter" value="Band Pass Filter">
 				</form>
 			</li>
 		</ol>
+	{% endif %}
 	</div>
 
 	<div class="col-5" style="text-align: center;">

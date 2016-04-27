@@ -27,5 +27,37 @@ def hello():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.route('/oversample', methods=['GET', 'POST'])
+def oversample_main():
+    if request.method == 'POST':
+        name = request.form['s1text']
+        upfile = os.path.join(app.config['UPLOAD_FOLDER'], name)
+        print upfile
+    return redirect(url_for('hello'))
+
+@app.route('/undersample', methods=['GET', 'POST'])
+def undersample_main():
+    if request.method == 'POST':
+        name = request.form['stext']
+        upfile = os.path.join(app.config['UPLOAD_FOLDER'], name)
+        print upfile
+    return redirect(url_for('hello'))
+
+@app.route('/lowpass', methods=['GET', 'POST'])
+def lpf_main():
+    if request.method == 'POST':
+        name = request.form['s2text']
+        upfile = os.path.join(app.config['UPLOAD_FOLDER'], name)
+        print upfile
+    return redirect(url_for('hello'))
+
+@app.route('/bandpass', methods=['GET', 'POST'])
+def bpf_main():
+    if request.method == 'POST':
+        name = request.form['s3text']
+        upfile = os.path.join(app.config['UPLOAD_FOLDER'], name)
+        print upfile
+    return redirect(url_for('hello'))
+
 if __name__ == "__main__":
     app.run()
