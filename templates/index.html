@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><title>Voice Sampling</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -11,20 +11,22 @@
 
 <div class="row">
 	<div class="col-5" style="text-align: center;">
+	{% if uploaded %}
 		<audio controls>
-			<source src="<?php echo $_POST['file1']; ?>"; type="audio/mpeg">
+			<source src="/uploads/{{ uploaded }}" type="audio/wav">
 			Your browser does not support audio element.
 		</audio>
+	{% endif %}
 
-		<form action="" method="post" >
+		<form action="{{ url_for('hello') }}" method="post" enctype="multipart/form-data">
 			<div class="field">
 				Choose file:
-				<input type="file" name="file1" id="file1" accept="audio/*"><br>
+				<input type="file" name="file" id="file1" accept="audio/*"><br>
 			</div>
 			<input type="submit" name="submit" value="Upload">
 		</form>
 	</div>
-	
+
 	<div class="col-2" style="text-align: center;">
 		<ol style="list-style-type: none;">
 			<li>
@@ -61,10 +63,10 @@
 			</li>
 		</ol>
 	</div>
-	
+
 	<div class="col-5" style="text-align: center;">
 		<audio controls>
-			<source src="<?php echo $_POST['file2']; ?>"; type="audio/mpeg">
+			<source src="" type="audio/mpeg">
 			Your browser does not support audio element.
 		</audio>
 
@@ -82,7 +84,7 @@
 	<div class="col-6" style="text-align: center;">
 		<p>Text about original file here. Badola yahan daalna hai.</p>
 	</div>
-	
+
 	<div class="col-6" style="text-align: center;">
 		<p>Text about new file here. Badola yahan daalna hai.</p>
 	</div>
@@ -93,7 +95,7 @@
 	<div class="col-6" style="text-align: center;">
 		<img src="" alt="image_ka_some_text" style="">
 	</div>
-	
+
 	<div class="col-6" style="text-align: center;">
 		<img src="" alt="image_ka_some_more_text" style="">
 	</div>
